@@ -1,0 +1,22 @@
+DB_USERNAME=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].username')
+DB_PASSWORD=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].password')
+DB_HOST=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].host')
+DB_PORT=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].port')
+DB_NAME=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].path')
+export DATABASE_URL="postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}"
+
+REDIS_HOST=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.redis[0].host')
+REDIS_PORT=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.redis[0].port')
+export REDIS_URL="redis://${REDIS_HOST}:${REDIS_PORT}"
+
+export JWT_SECRET=$PLATFORM_PROJECT_ENTROPY
+export COOKIE_SECRET=$PLATFORM_PROJECT_ENTROPY
+
+# export ADMIN_CORS (admin dashboard)
+# export STORE_CORS (storefront dashboard)
+
+# TYPEORM_CONNECTION=postgres
+# TYPEORM_URL=<DATABASE_URL>
+export TYPEORM_LOGGING=true
+export TYPEORM_ENTITIES=./node_modules/@medusajs/medusa/dist/models/*.js
+export TYPEORM_MIGRATIONS=./node_modules/@medusajs/medusa/dist/migrations/*.js

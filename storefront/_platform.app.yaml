@@ -1,0 +1,49 @@
+name: storefront
+
+type: nodejs:16
+
+build:
+  flavor: none
+
+variables:
+  env:
+    NODE_ENV: production
+    NPM_CONFIG_PRODUCTION: false
+    NEXT_PUBLIC_MEDUSA_BACKEND_URL: 'https://www.main-bvxea6i-agjl3vm6krygy.eu-3.platformsh.site'
+
+
+hooks:
+  build: |
+    npm install
+    npm run build
+
+  # deploy: |
+  #   printf "\nMigrations\n"
+  #   export MEDUSA_DISABLE_TELEMETRY=1
+  #   corepack yarn run medusa telemetry --disable
+  #   corepack yarn run medusa migrations run
+
+# The configuration of app when it is exposed to the web.
+web:
+  commands:
+    start: |
+      # Production start on all environments
+      npm run start
+
+# The size of the persistent disk of the application (in MB).
+disk: 1024
+
+relationships:
+  medusa: "backend:http"
+
+# The 'mounts' describe writable, persistent filesystem mounts in the application.
+mounts:
+  "/.cache":
+    source: local
+    source_path: yarn-cache
+  "/.config":
+    source: local
+    source_path: yarn-config
+  "public":
+    source: local
+    source_path: public
