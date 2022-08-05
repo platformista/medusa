@@ -10,7 +10,3 @@
 "https://{default}/store":
   type: redirect
   to: "https://www.{default}/store"
-
-"https://admin.{default}/":
-  type: upstream
-  upstream: "admin:http"
