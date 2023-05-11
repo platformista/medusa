@@ -28,7 +28,7 @@ hooks:
 web:
   commands:
     start: |
-      corepack yarn run dev
+      corepack yarn run dev -p $PORT
 
 
 disk: 512
