@@ -1,5 +1,5 @@
 # The name of this app. Must be unique within a project.
-name: nextjs
+name: storefront
 
 type: nodejs:18
 
