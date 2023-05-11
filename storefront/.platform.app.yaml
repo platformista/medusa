@@ -20,14 +20,15 @@ hooks:
   build: |
     set -e
     corepack yarn install --immutable
-#  post_deploy: |
-#    set -e
-#    cd $PLATFORM_APP_DIR
-#    corepack yarn build
+  post_deploy: |
+    set -e
+    cd $PLATFORM_APP_DIR
+    corepack yarn build
 
 web:
   commands:
-    start: sleep infinity
+    start: |
+      corepack yarn start
 
 
 disk: 512

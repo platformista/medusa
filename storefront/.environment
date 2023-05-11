@@ -1,5 +1,5 @@
 # Your Medusa backend, should be updated to where you are hosting your server. Remember to update CORS settings for your server. See – https://docs.medusajs.com/usage/configurations#storefront-cors
-NEXT_PUBLIC_MEDUSA_BACKEND_URL=https://www.main-bvxea6i-bv7maqtlwdxci.eu-3.platformsh.site
+NEXT_PUBLIC_MEDUSA_BACKEND_URL=$(echo $PLATFORM_ROUTES  | base64 --decode | jq -r 'keys[]' | grep store | grep https | grep api)
 
 # Your Stripe public key. See – https://docs.medusajs.com/add-plugins/stripe
 # NEXT_PUBLIC_STRIPE_KEY=
