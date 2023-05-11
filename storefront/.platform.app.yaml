@@ -1,0 +1,48 @@
+# The name of this app. Must be unique within a project.
+name: nextjs
+
+type: nodejs:18
+
+build:
+  flavor: none
+
+variables:
+  env:
+    NODE_ENV: production
+
+size: L
+
+resources:
+  base_memory: 1024
+  memory_ratio: 1024
+
+hooks:
+  build: |
+    set -e
+    corepack yarn install --immutable
+#  post_deploy: |
+#    set -e
+#    cd $PLATFORM_APP_DIR
+#    corepack yarn build
+
+web:
+  commands:
+    start: sleep infinity
+
+
+disk: 512
+
+mounts:
+  /.cache:
+    source: local
+    source_path: 'cache'
+  /.next:
+    source: local
+    source_path: 'next'
+  /.pm2:
+    source: local
+    source_path: 'pm2'
+  deploy:
+    source: service
+    service: files
+    source_path: deploy
