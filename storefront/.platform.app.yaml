@@ -39,10 +39,3 @@ mounts:
   /.next:
     source: local
     source_path: 'next'
-  /.pm2:
-    source: local
-    source_path: 'pm2'
-  deploy:
-    source: service
-    service: files
-    source_path: deploy
