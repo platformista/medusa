@@ -13,9 +13,9 @@ export JWT_SECRET=$PLATFORM_PROJECT_ENTROPY
 export COOKIE_SECRET=$PLATFORM_PROJECT_ENTROPY
 
 # export ADMIN_CORS (admin dashboard)
-#STORE_CORS=$(echo $PLATFORM_ROUTES  | base64 --decode | jq -r 'keys[]' | grep https | grep www)
-#STORE_CORS="${STORE_CORS::-1}"
-export STORE_CORS="[/https?:\/\/.*/]"
+# STORE_CORS=$8echo $PLATFORM_ROUTES  | base64 --decode | jq -r 'keys[]' | grep https | grep www`
+# STORE_CORS="${STORE_CORS::-1}"
+# export STORE_CORS
 
 
 # TYPEORM_CONNECTION=postgres
