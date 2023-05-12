@@ -16,17 +16,12 @@ hooks:
   build: |
     set -e
     corepack yarn install --immutable --production=false
-#  post_deploy: |
-#    set -e
-#    cd $PLATFORM_APP_DIR
-#    corepack yarn build
 
 web:
   commands:
     start: |
       corepack yarn build
       corepack yarn start -p $PORT
-
 
 disk: 2048
 
