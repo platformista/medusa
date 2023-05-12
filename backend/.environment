@@ -14,7 +14,7 @@ export COOKIE_SECRET=$PLATFORM_PROJECT_ENTROPY
 
 # export ADMIN_CORS (admin dashboard)
 STORE_CORS=$(echo $PLATFORM_ROUTES  | base64 --decode | jq -r 'keys[]' | grep https | grep www)
-export STORE_CORS=${STORE_CORS::-1}
+export STORE_CORS="${STORE_CORS::-1}"
 
 
 # TYPEORM_CONNECTION=postgres
