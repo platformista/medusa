@@ -5,6 +5,8 @@ DB_PORT=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].p
 DB_NAME=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].path')
 export DATABASE_URL="postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}"
 
+export DATABASE_TYPE=postgres
+
 REDIS_HOST=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.redis[0].host')
 REDIS_PORT=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.redis[0].port')
 export REDIS_URL="redis://${REDIS_HOST}:${REDIS_PORT}"
