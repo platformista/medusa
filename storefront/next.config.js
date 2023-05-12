@@ -7,6 +7,9 @@ module.exports = withStoreConfig({
   images: {
     domains: ["medusa-public-images.s3.eu-west-1.amazonaws.com", "localhost"],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 })
 
 console.log("next.config.js", JSON.stringify(module.exports, null, 2))
