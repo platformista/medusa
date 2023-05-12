@@ -27,7 +27,7 @@ web:
       corepack yarn run dev -p $PORT
 
 
-disk: 1024
+disk: 2048
 
 mounts:
   /.cache:
