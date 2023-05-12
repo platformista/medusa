@@ -1,8 +1,10 @@
+const config = require("platformsh-config").config();
+
 // CORS when consuming Medusa from admin
 const ADMIN_CORS = process.env.ADMIN_CORS || "http://localhost:7000,http://localhost:7001";
 
 // CORS to avoid issues when consuming Medusa from a client
-const STORE_CORS = process.env.STORE_CORS || "http://localhost:8000";
+const STORE_CORS = config.getRoute('storefront').url.slice(0, -1) || "http://localhost:8000";
 
 // Database URL (here we use a local database called medusa-development)
 const DATABASE_URL =
@@ -17,7 +19,6 @@ const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || "";
 
 const JWT_SECRET = process.env.JWT_SECRET || "very secure string";
 const COOKIE_SECRET = process.env.COOKIE_SECRET || "very secure string";
-
 
 // This is the place to include plugins. See API documentation for a thorough guide on plugins.
 const plugins = [

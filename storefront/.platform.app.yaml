@@ -1,0 +1,34 @@
+# The name of this app. Must be unique within a project.
+name: storefront
+
+type: nodejs:18
+
+build:
+  flavor: none
+
+size: L
+
+resources:
+  base_memory: 1024
+  memory_ratio: 1024
+
+hooks:
+  build: |
+    set -e
+    corepack yarn install --immutable --production=false
+
+web:
+  commands:
+    start: |
+      corepack yarn build
+      corepack yarn start -p $PORT
+
+disk: 2048
+
+mounts:
+  /.cache:
+    source: local
+    source_path: 'cache'
+  /.next:
+    source: local
+    source_path: 'next'

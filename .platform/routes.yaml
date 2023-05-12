@@ -3,10 +3,16 @@
 # Each route describes how an incoming URL is going
 # to be processed by Platform.sh.
 
-"https://www.{default}/store":
+"https://api.{default}":
   type: upstream
   upstream: "backend:http"
+  id: api
 
-"https://{default}/store":
+"https://www.{default}":
+  type: upstream
+  upstream: "storefront:http"
+  id: storefront
+
+"https://{default}":
   type: redirect
-  to: "https://www.{default}/store"
+  to: "https://www.{default}"
