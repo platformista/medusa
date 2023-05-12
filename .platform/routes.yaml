@@ -6,10 +6,12 @@
 "https://api.{default}":
   type: upstream
   upstream: "backend:http"
+  id: api
 
 "https://www.{default}":
   type: upstream
   upstream: "storefront:http"
+  id: storefront
 
 "https://{default}":
   type: redirect
