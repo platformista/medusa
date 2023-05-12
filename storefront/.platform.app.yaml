@@ -6,10 +6,6 @@ type: nodejs:18
 build:
   flavor: none
 
-variables:
-  env:
-    NODE_ENV: production
-
 size: L
 
 resources:
@@ -19,7 +15,7 @@ resources:
 hooks:
   build: |
     set -e
-    corepack yarn install --immutable
+    corepack yarn install --immutable --production=false
 #  post_deploy: |
 #    set -e
 #    cd $PLATFORM_APP_DIR
