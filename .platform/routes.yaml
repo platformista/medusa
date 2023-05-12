@@ -3,7 +3,7 @@
 # Each route describes how an incoming URL is going
 # to be processed by Platform.sh.
 
-"https://api.{default}/store":
+"https://api.{default}":
   type: upstream
   upstream: "backend:http"
 
