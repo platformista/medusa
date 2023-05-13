@@ -39,7 +39,7 @@ web:
 disk: 1024
 
 relationships:
-  database: "pg:postgresql"
+  pg: "postgres:postgresql"
   redis: "redis:redis"
 
 # The 'mounts' describe writable, persistent filesystem mounts in the application.
