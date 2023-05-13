@@ -9,6 +9,7 @@ variables:
     env: 
         MEDUSA_DISABLE_TELEMETRY: 1
         NODE_ENV: production
+        NPM_CONFIG_PRODUCTION: false
 
 hooks:
   build: |
