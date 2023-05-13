@@ -16,6 +16,7 @@ hooks:
     corepack yarn global add @medusajs/medusa-cli
     corepack yarn install --immutable
     corepack yarn run build
+    corepack yarn run build:admin
   deploy: |
     corepack yarn run medusa telemetry --disable
     corepack yarn run medusa migrations run
