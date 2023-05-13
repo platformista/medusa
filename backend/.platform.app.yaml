@@ -9,7 +9,6 @@ variables:
     env: 
         MEDUSA_DISABLE_TELEMETRY: 1
         NODE_ENV: production
-        YARN2_SKIP_PRUNING: true
 
 hooks:
   build: |
