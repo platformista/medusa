@@ -39,7 +39,7 @@ const plugins = [
   `medusa-payment-manual`,
   {
     resolve: "@medusajs/admin",
-    /** @type {import('@medusajs/admin').PluginOptions} */
+    // /** @type {import('@medusajs/admin').PluginOptions} */
     options: {},
   },
 ];
