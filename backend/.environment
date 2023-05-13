@@ -1,9 +1,11 @@
-DB_USERNAME=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].username')
-DB_PASSWORD=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].password')
-DB_HOST=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].host')
-DB_PORT=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].port')
-DB_NAME=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.database[0].path')
+DB_USERNAME=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.pg[0].username')
+DB_PASSWORD=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.pg[0].password')
+DB_HOST=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.pg[0].host')
+DB_PORT=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.pg[0].port')
+DB_NAME=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.pg[0].path')
 export DATABASE_URL="postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}"
+
+export DATABASE_TYPE=postgres
 
 REDIS_HOST=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.redis[0].host')
 REDIS_PORT=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.redis[0].port')
