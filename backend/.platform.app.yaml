@@ -9,30 +9,21 @@ variables:
     env: 
         MEDUSA_DISABLE_TELEMETRY: 1
         NODE_ENV: production
-        NPM_CONFIG_PRODUCTION: false
+        YARN2_SKIP_PRUNING: true
 
 hooks:
   build: |
-    printf "\nInstalling dependencies.\n"
     corepack yarn global add @medusajs/medusa-cli
     corepack yarn install --immutable
-
-    printf "\nBuilding the app.\n"
     corepack yarn run build
+  deploy: |
     corepack yarn run medusa telemetry --disable
-
-  # deploy: |
-  #   printf "\nMigrations\n"
-  #   export MEDUSA_DISABLE_TELEMETRY=1
-  #   corepack yarn run medusa telemetry --disable
-  #   corepack yarn run medusa migrations run
+    corepack yarn run medusa migrations run
 
 # The configuration of app when it is exposed to the web.
 web:
   commands:
     start: |
-      # Production start on all environments
-      corepack yarn run medusa migrations run
       corepack yarn run medusa start -p=$PORT
 
 # The size of the persistent disk of the application (in MB).
