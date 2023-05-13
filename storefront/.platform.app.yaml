@@ -20,6 +20,10 @@ hooks:
 web:
   commands:
     start: |
+# This is not ideal, but it works, and it's good enough for now.
+# For the record: what happens is that when the build directory is empty the first time the app is deployed,
+# the storefront will yield a 502 when loaded. But as soon as the build directory is populated, then the next
+# request will load the store correctly.
       corepack yarn build
       corepack yarn start -p $PORT
 
