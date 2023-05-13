@@ -38,11 +38,7 @@ const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
   {
-    resolve: {
-      alias: {
-        "@medusajs/admin": '@medusajs/admin/bin/medusa-admin.js',
-      },
-    },
+    resolve: "@medusajs/admin",
   },
 ];
 
