@@ -53,7 +53,7 @@ $ platform ssh "corepack yarn run medusa user -e some@email.com -p some-password
 
 This will create a new user that you can use to log into your admin panel.
 
-### Modifications
+## Special notes
 
 - The present setup is [currently ignoring TypeScript typechecking](/blob/main/storefront/next.config.js#L10-L16) in the `storefront` application, because of [this issue](https://github.com/medusajs/medusa/issues/4060).
 - In the backend, the `platformsh-config` library is now being used, and `STORE_CORS` is being set using it. My preferred way of doing this would be to do that in `.environment` (see relevant code currently commented out, because something is going wrong there).
