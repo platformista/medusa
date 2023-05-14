@@ -1,14 +1,10 @@
-# export ADMIN_CORS (admin dashboard)
-STORE_CORS=$(echo $PLATFORM_ROUTES | base64 -d | jq -r 'paths(objects) as $p | select(getpath($p) | .id=="storefront") | $p[0]')
-STORE_CORS="${STORE_CORS::-1}"
-export STORE_CORS
-
 DB_USERNAME=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.pg[0].username')
 DB_PASSWORD=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.pg[0].password')
 DB_HOST=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.pg[0].host')
 DB_PORT=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.pg[0].port')
 DB_NAME=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.pg[0].path')
 export DATABASE_URL="postgresql://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}"
+
 export DATABASE_TYPE=postgres
 
 REDIS_HOST=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r '.redis[0].host')
@@ -17,6 +13,12 @@ export REDIS_URL="redis://${REDIS_HOST}:${REDIS_PORT}"
 
 export JWT_SECRET=$PLATFORM_PROJECT_ENTROPY
 export COOKIE_SECRET=$PLATFORM_PROJECT_ENTROPY
+
+# export ADMIN_CORS (admin dashboard)
+# STORE_CORS=$8echo $PLATFORM_ROUTES  | base64 --decode | jq -r 'keys[]' | grep https | grep www`
+# STORE_CORS="${STORE_CORS::-1}"
+# export STORE_CORS
+
 
 # TYPEORM_CONNECTION=postgres
 # TYPEORM_URL=<DATABASE_URL>
