@@ -28,6 +28,8 @@ Then, you may run
 $ platform ssh "corepack yarn run seed" -p <PROJECT_ID>  -e main -A backend
 ```
 
+where `<PROJECT_ID>` is the unique identifier of the project you just deployed thanks to this template. You can access that information via the CLI or the Web Console. 
+
 ### Verify data presence
 
 You can request `/store/products` from the backend to verify a list of products is now present.
