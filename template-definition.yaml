@@ -21,16 +21,16 @@ info:
   # the lowercase name of the template. This may be the same as the vendor in a single-product case.
   id: platformista/medusa
   # The human-readable name of the template.  This is how the template will be named in the user interface.
-  name: Medusa.js
+  name: Medusa
   # Human-readable descriptive text for the template. Supports limited HTML.
   # This field should be 1-3 sentences describing how the project is setup, assuming the reader already knows what
   # the application is.
   description: |
-    A Platform.sh template for Medusa.js
+    A Platform.sh template for Medusa
   # A list of tags associated with the template.  These should be highly generic terms like "CMS", "Framework", and
   # the language in which the application is written.
   tags:
-    - Node
+    - Node.js
     - ecommerce
   # An image URI (either base64-encoded or a URL) representing the template.  Base64-encoded SVG strongly preferred.
   # image: data:image/svg+xml;...
@@ -40,7 +40,7 @@ info:
   # These are the name/version of the Platform.sh containers, not including the Nginx router.
   notes:
     - heading: "Apps & Services"
-      content: "Node"
+      content: "Medusa"
 
 # This key describes the initialization call made to the master environment at
 # project creation time. This is part of the full v2 UI operation mode, which
@@ -52,4 +52,4 @@ initialize:
   repository: https://github.com/platformista/medusa.git@main
   config: null
   files: []
-  profile: Medusa.js
+  profile: Medusa
