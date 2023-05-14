@@ -2,13 +2,20 @@
 <a href="https://console.platform.sh/projects/create-project/?template=https://github.com/platformista/medusa/blob/main/template-definition.yaml&utm_campaign=deploy_on_platform?utm_medium=button&utm_source=affiliate_links&utm_content=https://github.com/platformista/medusa/blob/main/template-definition.yaml" target="_blank" title="Deploy with Platform.sh"><img src="https://platform.sh/images/deploy/deploy-button-lg-blue.svg"></a>
 </p>
 
-# Medusa.js for Platform.sh
+# Medusa for Platform.sh
+
+- [Medusa](https://medusajs.com) Medusa is an open-source commerce solution, offering reusable modules for bespoke applications, leveraging modern tech for scalability and control, ideal for brands seeking customisation and innovation.
+- [Platform.sh](https://platform.sh) is a horizontal polyglot PaaS that offers a unified, secure, enterprise-grade solution for responsibly building, running, and scaling fleets of websites and applications.
+
+## Template
+
+Platform.sh template offer a way to one-click install a working installation of an application or collection of applications. 
 
 This template deploys:
 
 - [The Medusa Backend](https://docs.medusajs.com/development/backend/install)
 - [The Admin Dashboard](https://docs.medusajs.com/admin/quickstart)
-- [The Storefront](https://docs.medusajs.com/starters/nextjs-medusa-starter)
+- [The Next.js Storefront](https://docs.medusajs.com/starters/nextjs-medusa-starter)
 
 ## Seed data
 
