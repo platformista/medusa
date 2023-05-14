@@ -4,37 +4,45 @@
 
 # Medusa.js for Platform.sh
 
-Work in progress. Currently, this only deploys
+This template deploys:
 
-- [the Medusa backend](https://docs.medusajs.com/development/backend/install) (API)
-- [the NextJS storefront](https://docs.medusajs.com/starters/nextjs-medusa-starter)
-
-The [admin application](https://docs.medusajs.com/admin/quickstart) is still missing.
+- [The Medusa Backend](https://docs.medusajs.com/development/backend/install)
+- [The Admin Dashboard](https://docs.medusajs.com/admin/quickstart)
+- [The Storefront](https://docs.medusajs.com/starters/nextjs-medusa-starter)
 
 ## Seed data
 
 After the first deployment, you might want to seed the database by running `yarn run seed` in the backend container.
 To do this, you would ideally have the [Platform.sh CLI](https://github.com/platformsh/cli) installed. 
 
-Then, you may either run
+Then, you may run
 
 ```shell
-$ platform ssh "corepack yarn run seed" -p <PROJECT_ID>
-```
-
-where `PROJECT_ID` is the ID of the project you just deployed thanks to this template. 
-
-Or you may check out the project and then run a shorter version of the command above:
-
-```shell
-$ platform get <PROJECT_ID>
-$ cd /path/to/your/project
-$ platform ssh "corepack yarn run seed"
+$ platform ssh "corepack yarn run seed" -p <PROJECT_ID>  -e main -A backend
 ```
 
 ### Verify data presence
 
-You can request `/store/products` from the backend to verify a list of products is now present. 
+You can request `/store/products` from the backend to verify a list of products is now present.
+
+## Access the Admin Dashboard
+
+The dashboard is installed as plugin of the backend, and will be available at `/app` on the same domain as the backend.
+
+If you installed the demo data as per above, you may now log in with the following credentials:
+
+- email: `admin@medusa-test.com`
+- password: `supersecret`
+
+### Create a new user
+
+To create a new admin user from the command line, run the following command in the directory holding your Medusa backend:
+
+```shell
+$ platform ssh "corepack yarn run medusa user -e some@email.com -p some-password" -p <PROJECT_ID>  -e main -A backend
+```
+
+This will create a new user that you can use to log into your admin panel.
 
 ### Modifications
 
